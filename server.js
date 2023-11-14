@@ -10,7 +10,7 @@ const app = express();
 // app.use(express.json());
 
 
-app.get("/home" , (req, res) => {
+app.get("/" , (req, res) => {
   res.send("Hello");
   console.log("hello");
 })
