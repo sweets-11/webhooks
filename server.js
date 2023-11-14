@@ -10,11 +10,12 @@ const app = express();
 // app.use(express.json());
 
 
-app.get("/" , (req, res) => {
+app.get("/home" , (req, res) => {
   res.send("Hello");
+  console.log("hello");
 })
 
-app.post("/webhook",(request, response) => {
+app.post("/webhook",express.raw({type: 'application/json'}), (request, response) => {
     const sig = request.headers["stripe-signature"];
 
     let event;
