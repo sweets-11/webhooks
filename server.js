@@ -7,7 +7,7 @@ const endpointSecret =
 const express = require("express");
 require('dotenv').config()
 const app = express();
-app.use(express.json());
+// app.use(express.json());
 
 
 app.get("/home" , (req, res) => {
@@ -15,7 +15,7 @@ app.get("/home" , (req, res) => {
   console.log("hello");
 })
 
-app.post("/webhook",(request, response) => {
+app.post("/webhook",express.raw({type: 'application/json'}), (request, response) => {
     const sig = request.headers["stripe-signature"];
 
     let event;
