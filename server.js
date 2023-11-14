@@ -7,7 +7,7 @@ const endpointSecret =
 const express = require("express");
 require('dotenv').config()
 const app = express();
-app.use(express.json());
+// app.use(express.json());
 
 
 app.get("/" , (req, res) => {
@@ -38,7 +38,7 @@ app.post("/webhook",(request, response) => {
       case "payment_intent.succeeded":
         const paymentIntentSucceeded = event.data.object;
         console.log("Payment Intent Succeeded", paymentIntentSucceeded);
-        response.send(paymentIntentSucceeded);
+        // response.send(paymentIntentSucceeded);
         break;
       // case "payment_intent.processing":
       //   const paymentIntentProcessing = event.data.object;
@@ -49,7 +49,7 @@ app.post("/webhook",(request, response) => {
       case "payment_intent.payment_failed":
         const paymentIntentFailed = event.data.object;
         console.log("Payment Failed", paymentIntentFailed);
-        response.send(paymentIntentFailed);
+        // response.send(paymentIntentFailed);
         break;
       default:
         console.log(`Unhandled event type ${event.type}`);
