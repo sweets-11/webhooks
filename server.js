@@ -9,6 +9,11 @@ require('dotenv').config()
 const app = express();
 app.use(express.json());
 
+
+app.get("/", (req,res) => {
+  res.send("welcome");
+})
+
 app.post("/api/v1/order/webhook",(request, response) => {
     const sig = request.headers["stripe-signature"];
 
